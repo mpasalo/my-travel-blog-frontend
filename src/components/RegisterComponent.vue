@@ -3,24 +3,25 @@
     <h1 class="text-[40px] text-center mb-4"><em>Register</em></h1>
 
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Name</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" name="name" id="name"  class="form-control" v-model="form.name">
     </div>
 
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        <label for="email" class="form-label">Email address</label>
+        <input type="email" name="email" id="email" class="form-control" v-model="form.email">
     </div>
 
     <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" name="password" id="password" class="form-control" v-model="form.password">
     </div>
   
     <button @click="registerUser()"  class="btn btn-info">Submit</button>
 </div>
 </template>
 <script>
+import Form from "vform";
 export default {
     data() {
         return {
@@ -43,8 +44,12 @@ export default {
             let data = {
                 formData: formData
             };
-
-            this.$store.dispatch("user/register", data);
+            
+            this.$store.state.name = this.form.name;
+            this.$store.state.email = this.form.email;
+            this.$store.state.password = this.form.password;
+ 
+            this.$store.dispatch("registerUser", data);
         }
     }
 }
