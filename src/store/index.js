@@ -3,20 +3,34 @@ import Swal from 'sweetalert2';
 import api from './../api'
 import axios from 'axios'
 import router from '../router'
-import { logIn } from '../userFunctions'
+import { logIn, checkAuthentication } from '../userFunctions'
+import * as types from './mutation-types'
 
 // Create a new store instance.
 export default createStore({
     state () {
         return {
-            isAuthenticated: true,
+            isAuthenticated: false,
             token: null,
+            user: [],
             name: "",
             email: "",
             password: "",
         }
     },
-    mutations: {},
+    getters: {
+        user(state) {
+            return state.user;
+        },
+        isAuthenticated(state) {
+            return state.isAuthenticated;
+        }
+    },
+    mutations: {
+        [types.USER](state, payload) {
+            state.user = payload;
+        }
+    },
     actions:{
         registerUser({ commit }, data) {
             axios.post(import.meta.env.VITE_APP_URL + `/api/user/create`, data.formData).then(response => {
@@ -40,17 +54,14 @@ export default createStore({
                         icon: "error",
                         confirmButtonText: "Close"
                     });                  
-                } else {
-             
+                } else {                
                     logIn(this.state.email, this.state.password).then(
                         (response) => {
-                            this.state.isAuthenticated =  true;
-                            this.state.token = response.data.token;
-
                             localStorage.setItem("token", response.data.token);
+                            checkAuthentication();
+                            router.push({ path: '/posts' }); 
                         }
-                    )
-                    router.push({ path: '/posts' });
+                    )              
                 }
             });
         },
