@@ -2,7 +2,7 @@
     <div class="home">
         <div class="grid grid-cols-1 gap-4 place-content-center">
             <div>
-                <h1 class="text-white text-[40px] text-center mb-4"><em>Travel Blog</em></h1>
+                <h1 class="text-dark text-[40px] text-center mb-4"><em>Travel Blog</em></h1>
             </div>
 
         </div>

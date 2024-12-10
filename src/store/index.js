@@ -16,6 +16,7 @@ export default createStore({
             name: "",
             email: "",
             password: "",
+            posts: {}
         }
     },
     getters: {
@@ -24,11 +25,17 @@ export default createStore({
         },
         isAuthenticated(state) {
             return state.isAuthenticated;
+        },
+        posts(state) {
+            return state.posts;
         }
     },
     mutations: {
         [types.USER](state, payload) {
             state.user = payload;
+        },
+        [types.POSTS](state, payload) {
+            state.posts = payload;
         }
     },
     actions:{
@@ -65,5 +72,46 @@ export default createStore({
                 }
             });
         },
+
+        getPosts({ commit }) {
+            api().get(`posts`).then(response => {
+                commit("POSTS", response.data);
+            });
+        },
+
+        savePost({ commit }, data) {
+            api().post(`posts`, data.formData).then(response => {
+                if (response.data.message) {
+                    var arr = [].concat.apply([], [ 
+                            response.data.message.title,
+                            response.data.message.body,
+                    ]);
+
+                    let error_fields = arr.filter(function(e) {
+                        if (e) {
+                            return e;
+                        } else {
+                            return null;
+                        }
+                    });
+                    Swal.fire({
+                        title: "Create Post Error",
+                        html: error_fields,
+                        icon: "error",
+                        confirmButtonText: "Close"
+                    });                  
+                } else {                
+                    Swal.fire({
+                        title: "Post",
+                        html: "Successfully Created Post",
+                        icon: "success",
+                        confirmButtonText: "Go Back To Posts"
+                    }).then(response => {
+                        router.push({ path: '/posts' });
+                    });                
+                }
+            });
+        },
+
     }
 });
