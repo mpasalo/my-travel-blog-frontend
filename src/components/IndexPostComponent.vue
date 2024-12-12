@@ -17,6 +17,20 @@
                 {{ post.title }}
             </RouterLink>
             <span v-if="userId == post.user.id">
+                <RouterLink 
+                    :to="{
+                        name: 'editPost', 
+                        params: 
+                        {
+                            id: post.id,
+                        }
+                    }
+                ">
+                    <ion-icon
+                        name="create-outline"
+                        class="btn btn-secondary btn-sm m-2"
+                    ></ion-icon>
+                </RouterLink>
                 <ion-icon
                     name="trash-outline"
                     class="btn btn-danger btn-sm m-2"

@@ -126,6 +126,40 @@ export default createStore({
             });
         },
 
+        editPost({ commit }, data) {
+            api().put(`posts/${data.id}`, data.formData).then(response => {
+                if (response.data.message) {
+                    var arr = [].concat.apply([], [ 
+                            response.data.message.title,
+                            response.data.message.body,
+                    ]);
+
+                    let error_fields = arr.filter(function(e) {
+                        if (e) {
+                            return e;
+                        } else {
+                            return null;
+                        }
+                    });
+                    Swal.fire({
+                        title: "Edit Post Error",
+                        html: error_fields,
+                        icon: "error",
+                        confirmButtonText: "Close"
+                    });                  
+                } else {                
+                    Swal.fire({
+                        title: "Post",
+                        html: "Successfully Updated Post",
+                        icon: "success",
+                        confirmButtonText: "Go Back To Posts"
+                    }).then(response => {
+                        router.push({ path: '/posts' });
+                    });                
+                }
+            });
+        },
+
         deletePost({ commit }, id) {
             api().delete(`posts/${id}`).then(response => {
                 if (response.data.message) {
