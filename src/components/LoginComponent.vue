@@ -34,6 +34,7 @@ import router from '../router'
             logInUser() {
                 logIn(this.form.email, this.form.password).then(
                     (response) => {
+                        localStorage.setItem("userId", response.data.id);
                         localStorage.setItem("token", response.data.token);
                         checkAuthentication(); 
                         router.push({ path: '/posts' });

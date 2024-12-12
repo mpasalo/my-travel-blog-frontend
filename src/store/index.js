@@ -16,7 +16,8 @@ export default createStore({
             name: "",
             email: "",
             password: "",
-            posts: {}
+            posts: {},
+            post: {}
         }
     },
     getters: {
@@ -28,6 +29,9 @@ export default createStore({
         },
         posts(state) {
             return state.posts;
+        },
+        post(state) {
+            return state.post;
         }
     },
     mutations: {
@@ -36,6 +40,9 @@ export default createStore({
         },
         [types.POSTS](state, payload) {
             state.posts = payload;
+        },
+        [types.POST](state, payload) {
+            state.post = payload;
         }
     },
     actions:{
@@ -76,6 +83,12 @@ export default createStore({
         getPosts({ commit }) {
             api().get(`posts`).then(response => {
                 commit("POSTS", response.data);
+            });
+        },
+
+        getPost({ commit }, postId) {
+            api().get(`posts/${postId}`).then(response => {
+                commit("POST", response.data);
             });
         },
 
