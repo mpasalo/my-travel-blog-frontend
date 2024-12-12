@@ -15,7 +15,6 @@
   </main>
 </template>
 <script>
-import { RouterView, RouterLink } from 'vue-router';
 import { logOut, checkAuthentication } from '../userFunctions'
 
 export default {

@@ -126,5 +126,37 @@ export default createStore({
             });
         },
 
+        deletePost({ commit }, id) {
+            api().delete(`posts/${id}`).then(response => {
+                if (response.data.message) {
+                    var arr = [].concat.apply([], [ 
+                        response.data.message,
+                    ]);
+
+                    let error_fields = arr.filter(function(e) {
+                        if (e) {
+                            return e;
+                        } else {
+                            return null;
+                        }
+                    });
+                    Swal.fire({
+                        title: "Delete Post Error",
+                        html: error_fields,
+                        icon: "error",
+                        confirmButtonText: "Close"
+                    });                  
+                } else {  
+                    this.dispatch("getPosts");              
+                    Swal.fire({
+                        title: "Post",
+                        html: "Successfully Delete Post",
+                        icon: "success",
+                        confirmButtonText: "Close"
+                    });                
+                }
+            });
+        },
+
     }
 });
