@@ -10,7 +10,7 @@
                 v-model="post.title"
             />
         </div>
-        <div class="form-group">
+        <div class="form-group mt-4">
             <label class="label" for="body">Blog Content</label>
             <textarea
                 name="body"
@@ -18,7 +18,7 @@
                 v-model="post.body"
             ></textarea>
         </div>
-        <div class="form-group">
+        <div class="form-group mt-4">
             <div class="control">
                 <button @click="updateBlogPost()" class="btn btn-danger">
                     Save Changes

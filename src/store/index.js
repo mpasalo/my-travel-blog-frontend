@@ -71,6 +71,7 @@ export default createStore({
                 } else {                
                     logIn(this.state.email, this.state.password).then(
                         (response) => {
+                            localStorage.setItem("userId", response.data.id);
                             localStorage.setItem("token", response.data.token);
                             checkAuthentication();
                             router.push({ path: '/posts' }); 
