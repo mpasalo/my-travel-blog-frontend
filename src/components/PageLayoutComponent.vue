@@ -7,7 +7,7 @@
     </span>
     <span v-else>
       <RouterLink to="/posts">Posts</RouterLink> |
-      <button @click="logOutUser()" >Logout</button>
+      <button class="text-green-700" @click="logOutUser()" >Logout</button>
       </span> 
   </nav>
   <main>
