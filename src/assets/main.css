@@ -24,12 +24,6 @@ a,
   }
 }
 
-@media (min-width: 1024px) {
-  body {
-    display: flex;
-  }
-}
-
 .background-image {
   background-image: url("/travel_background.jpg");
   background-size: cover;

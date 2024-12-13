@@ -1,24 +1,27 @@
 <template>
-<div class="register text-white">
-    <h1 class="text-[40px] text-center mb-4"><em>Register</em></h1>
+    <div class="grid gap-4 grid-cols-3">
+        <div></div>
+        <div class="register text-white">
+            <h1 class="text-[40px] text-center mb-4"><em>Register</em></h1>
 
-    <div class="mb-3">
-        <label for="name" class="form-label">Name</label>
-        <input type="text" name="name" id="name"  class="form-control" v-model="form.name">
-    </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" name="name" id="name"  class="form-control" v-model="form.name">
+            </div>
 
-    <div class="mb-3">
-        <label for="email" class="form-label">Email address</label>
-        <input type="email" name="email" id="email" class="form-control" v-model="form.email">
-    </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" name="email" id="email" class="form-control" v-model="form.email">
+            </div>
 
-    <div class="mb-3">
-        <label for="password" class="form-label">Password</label>
-        <input type="password" name="password" id="password" class="form-control" v-model="form.password">
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" name="password" id="password" class="form-control" v-model="form.password">
+            </div>
+        
+            <button @click="registerUser()"  class="btn btn-info">Submit</button>
+        </div>
     </div>
-  
-    <button @click="registerUser()"  class="btn btn-info">Submit</button>
-</div>
 </template>
 <script>
 import Form from "vform";

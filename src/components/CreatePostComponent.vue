@@ -7,8 +7,8 @@
         </div>
 
         <div class="mb-3">
-            <label for="description" class="form-label">Description</label>
-            <input type="text" name="description" id="description" class="form-control" v-model="form.description">
+            <label for="description" class="form-label">Body</label>
+            <textarea rows="5" name="description" id="description" class="form-control" v-model="form.description"></textarea>
         </div>
         
         <button @click="savePost()" class="btn btn-info">Save Post</button>
