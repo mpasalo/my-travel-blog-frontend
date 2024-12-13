@@ -6,9 +6,11 @@
             </div>
 
         </div>
+
         <video autoplay="" loop="" muted id="myVideo">
             <source src="/highway-loop.mp4" type="video/mp4" />
         </video>
+
     </div>  
 </template>
 <script>

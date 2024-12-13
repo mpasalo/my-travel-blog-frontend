@@ -1,5 +1,5 @@
 <template>
-    <div class="grid gap-4 grid-cols-3">
+    <div class="grid gap-4 md:grid-cols-3 sm:grid-cols-1">
         <div></div>
         <div class="register text-white">
             <h1 class="text-[40px] text-center mb-4"><em>Register</em></h1>
