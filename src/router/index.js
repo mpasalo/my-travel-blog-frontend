@@ -4,7 +4,6 @@ import LoginComponent from '../components/LoginComponent.vue'
 import RegisterComponent from '../components/RegisterComponent.vue'
 import IndexPostComponent from '../components/IndexPostComponent.vue'
 import CreatePostComponent from '../components/CreatePostComponent.vue'
-import PostComponent from '../components/PostComponent.vue'
 import EditPostComponent from '../components/EditPostComponent.vue'
 
 export default createRouter({
@@ -15,7 +14,6 @@ export default createRouter({
         { path: '/register', name: 'register', component: RegisterComponent },
         { path: '/posts', name: 'indexPosts', component: IndexPostComponent },
         { path: '/create-post', name: 'createPosts', component: CreatePostComponent },
-        { path: '/posts/:id', name: 'post', component: PostComponent },
         { path: '/edit-post/:id', name: 'editPost', component: EditPostComponent },
     ]
 });

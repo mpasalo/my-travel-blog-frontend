@@ -5,38 +5,28 @@
         <div class="grid gap-4 grid-cols-3 grid-rows-3"> 
             <div v-for="post in posts">  
                 <p class="text-[28px]">
-                    <RouterLink 
-                        :to="{
-                            name: 'post', 
-                            params: 
-                            {
-                                id: post.id,
-                            }
-                        }
-                    ">
                     {{ post.title }}
-                </RouterLink>
-                <span v-if="userId == post.user.id">
-                    <RouterLink 
-                        :to="{
-                            name: 'editPost', 
-                            params: 
-                            {
-                                id: post.id,
+                    <span v-if="userId == post.user.id">
+                        <RouterLink 
+                            :to="{
+                                name: 'editPost', 
+                                params: 
+                                {
+                                    id: post.id,
+                                }
                             }
-                        }
-                    ">
+                        ">
+                            <ion-icon
+                                name="create-outline"
+                                class="btn btn-secondary btn-sm m-2"
+                            ></ion-icon>
+                        </RouterLink>
                         <ion-icon
-                            name="create-outline"
-                            class="btn btn-secondary btn-sm m-2"
+                            name="trash-outline"
+                            class="btn btn-danger btn-sm m-2"
+                            @click="deletePost(post.title, post.id)"
                         ></ion-icon>
-                    </RouterLink>
-                    <ion-icon
-                        name="trash-outline"
-                        class="btn btn-danger btn-sm m-2"
-                        @click="deletePost(post.title, post.id)"
-                    ></ion-icon>
-                </span> 
+                    </span> 
                 </p>
                 {{ format_date(post.created_at) }} - {{ post.user.name }}
                 <p> 
