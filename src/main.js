@@ -10,7 +10,7 @@ router.beforeEach(async (to, from) => {
       // make sure the user is authenticated
       !store.state.isAuthenticated &&
       // ❗️ Avoid an infinite redirect
-      to.name !== 'login' && to.name !== 'register' && to.name !== 'home' && to.name === 'posts'
+      to.name !== 'login' && to.name !== 'register' && to.name !== 'home' && to.name !== 'indexPosts' 
     ) {
       // redirect the user to the login page
       return { name: 'login' }
