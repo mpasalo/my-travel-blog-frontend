@@ -1,7 +1,9 @@
 @import './base.css';
+@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 #app {
   max-width: 1280px;
@@ -76,106 +78,40 @@ body, html {
   }
 }
 
-.nav-scroller {
-  position: relative;
-  z-index: 2;
-  height: 2.75rem;
-  overflow-y: hidden;
+.nav-links {
+  position: fixed;
+  z-index: 50;
+  left: 43%;
+  top: 5%;
 }
 
-.nav-scroller .nav {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
-  padding-bottom: 1rem;
-  margin-top: -1px;
-  overflow-x: auto;
-  text-align: center;
-  white-space: nowrap;
-  -webkit-overflow-scrolling: touch;
-}
-
-.nav-scroller .nav-link {
-  padding-top: .75rem;
-  padding-bottom: .75rem;
-  font-size: .875rem;
-}
-
-.card-img-right {
-  height: 100%;
-  border-radius: 0 3px 3px 0;
-}
-
-.flex-auto {
-  -ms-flex: 0 0 auto;
-  flex: 0 0 auto;
-}
-
-.h-250 { height: 250px; }
-@media (min-width: 768px) {
-  .h-md-250 { height: 250px; }
-}
-
-/*
- * Blog name and description
- */
-.blog-title {
-  margin-bottom: 0;
-  font-size: 2rem;
+.your-travel {
+  font-family: "Ms Madi", serif;
   font-weight: 400;
-}
-.blog-description {
-  font-size: 1.1rem;
-  color: #999;
+  font-style: normal;
+  font-size: 100px;
 }
 
-@media (min-width: 40em) {
-  .blog-title {
-    font-size: 3.5rem;
-  }
+.headings {
+  font-family: "Ms Madi", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
 }
-
-/* Pagination */
-.blog-pagination {
-  margin-bottom: 4rem;
-}
-.blog-pagination > .btn {
-  border-radius: 2rem;
-}
-
-/*
- * Blog posts
- */
-.blog-post {
-  margin-bottom: 4rem;
-}
-.blog-post-title {
-  margin-bottom: .25rem;
-  font-size: 2.5rem;
-}
-.blog-post-meta {
-  margin-bottom: 1.25rem;
-  color: #999;
-}
-
-/*
- * Footer
- */
-.blog-footer {
-  padding: 2.5rem 0;
-  color: #999;
-  text-align: center;
-  background-color: #f9f9f9;
-  border-top: .05rem solid #e5e5e5;
-}
-.blog-footer p:last-child {
-  margin-bottom: 0;
-}
-
 
 /* Video */
-#myVideo {
+
+#video-container {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+#video-container video,
+.video-overlay {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -185,38 +121,74 @@ body, html {
   max-width: none;
 }
 
-#video-container{
-
-
- z-index: 99999;
- position: absolute;
- height: 100%;
- width: 100%;
+#video-container .video-overlay {
+  z-index: 1;
+  background: rgba(0,0,0,0.5);
+  width: 100%;
 }
 
-/* #video-container .video-content .inner{
+#video-container .video-content {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
 
-  color:white;
-  font-size: 20px;
-  
-  padding-top: 250px;
+#video-container .video-content .inner {
   height: 100%;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
-} */
-.inner a{
+}
 
-  color:white;
-  text-decoration: none;
-  font-size: 1.5em;
- }
+#video-container .video-content .inner h1 {
+  font-size: 64px;
+  color: #fff;
+  letter-spacing: 2px;
+  font-weight: 500;
+  text-align: center;
+}
 
-#login{
+#video-container .video-content .inner em {
+  font-style: normal;
+  font-weight: 200;
+}
 
-  font-family: 'Indie Flower';font-size: 22px;
 
-  padding-top: 250px;
+#video-container .video-content .inner p {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 200;
+  letter-spacing: 1.5px;
+  text-align: center;
+  padding: 0px 30px;
+}
+
+#video-container .video-content .inner a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+#video-container .video-content .inner .scroll-icon {
+  margin-top: 45px;
+}
+
+#roadVideo {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+  z-index: -1;
+  max-width: none;
+}
+
+.blog-container {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 50;
+  height: 500px;
 }
