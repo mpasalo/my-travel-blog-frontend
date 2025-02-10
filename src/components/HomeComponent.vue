@@ -1,17 +1,20 @@
 <template>
-    <div class="home">
-        <div class="grid grid-cols-1 gap-4 place-content-center">
-            <div>
-                <h1 class="text-dark text-[40px] text-center mb-4"><em>Travel Blog</em></h1>
+    <div id="video-container">
+        <div class="video-overlay"></div>
+        <div class="video-content">
+            <div class="inner">
+                <h1><span class="your-travel">Your Travel</span> <em>BLOG</em></h1>
+                <p>See the World, One Story at a Time.</p>
+                <!-- <div class="scroll-icon">
+                    <a class="scrollTo" data-scrollTo="portfolio" href="#"><img src="img/scroll-icon.png" alt=""></a>
+                </div>     -->
             </div>
-
         </div>
-
-        <video autoplay="" loop="" muted id="myVideo">
-            <source src="/highway-loop.mp4" type="video/mp4" />
+        <video autoplay="" loop="" muted>
+            <source src="/highway-loop.mp4" type="video/mp4" id="roadVideo" />
         </video>
+    </div>
 
-    </div>  
 </template>
 <script>
    
