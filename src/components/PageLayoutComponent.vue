@@ -1,14 +1,14 @@
 <template>
-  <nav class="text-center text-[20px]">
-    <RouterLink  to="/">Home</RouterLink> |
+  <nav class="text-center text-[20px] nav-links">
+    <RouterLink to="/" class="text-white">HOME</RouterLink> |
     <span v-if="!this.$store.state.isAuthenticated">
-      <RouterLink to="/login">Login</RouterLink> |
-      <RouterLink to="/register">Register</RouterLink>
+      <RouterLink to="/login" class="text-white">LOGIN</RouterLink> |
+      <RouterLink to="/register" class="text-white">REGISTER</RouterLink>
     </span>
     <span v-else>
-      <RouterLink to="/posts">Posts</RouterLink> |
-      <button class="text-green-700" @click="logOutUser()" >Logout</button>
-      </span> 
+      <RouterLink to="/posts" class="text-white">POSTS</RouterLink> |
+      <button class="text-green-700 text-white" @click="logOutUser()" >LOGOUT</button>
+    </span> 
   </nav>
   <main>
     <RouterView />
