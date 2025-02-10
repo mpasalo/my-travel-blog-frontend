@@ -50,8 +50,8 @@ a,
 
 
 body, html {
-  overflow: auto !important;
-  min-height: 100%;
+  overflow: auto;
+  height: 100%;
 }
 
 .blog-header {
