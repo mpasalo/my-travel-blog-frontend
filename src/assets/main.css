@@ -55,13 +55,16 @@ body, html {
 }
 
 
+@media (max-width: 425px) {
+  .nav-links{
+    left: 15% !important;
   }
 }
 
 .nav-links {
   position: fixed;
   z-index: 50;
-  left: 43%;
+  left: 10%;
   top: 5%;
 }
 
