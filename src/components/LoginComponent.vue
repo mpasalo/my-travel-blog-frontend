@@ -1,8 +1,8 @@
 <template>
-    <div class="grid gap-4 md:grid-cols-3 sm:grid-cols-1">
+    <div class="grid gap-4 md:grid-cols-3 sm:grid-cols-1 mt-24">
         <div></div>
         <div class="login">
-            <h1 class="text-white text-[40px] text-center mb-4"><em>Login</em></h1>
+            <h1 class="text-white text-[40px] text-center mb-4 headings"><em>Login</em></h1>
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email address</label>

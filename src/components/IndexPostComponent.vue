@@ -1,6 +1,6 @@
 <template>
-    <div class="indexPosts text-white">
-        <h1 class="text-[40px] text-center mb-4"><em>Posts</em></h1>
+    <div class="indexPosts text-white mt-24">
+        <h1 class="text-[40px] text-center mb-4 headings"><em>Posts</em></h1>
         <RouterLink to="/create-post"><button class="btn btn-info text-center mb-2">Create a new post</button></RouterLink>
         <div class="grid gap-4 md:grid-cols-3 sm:grid-cols-1 grid-rows-3"> 
             <div v-for="post in posts">  
