@@ -1,6 +1,6 @@
 <template>
-    <div class="editPost text-white">
-        <h1 class="text-[40px] text-center mb-4"><em>Posts</em></h1>
+    <div class="editPost text-white mt-24">
+        <h1 class="text-[40px] text-center mb-4 headings"><em>Edit Post</em></h1>
         <div class="form-group">
             <label class="label" for="title">Post Title</label>
             <input

@@ -1,6 +1,6 @@
 <template>
-    <div class="Create Post text-white">
-        <h1 class="text-[40px] text-center mb-4"><em>Create Posts</em></h1>
+    <div class="Create Post text-white mt-24">
+        <h1 class="text-[40px] text-center mb-4 headings"><em>Create Posts</em></h1>
         <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" name="title" id="name" class="form-control" v-model="form.title">
